@@ -45,9 +45,9 @@ src/
     resources/                           // non-Java resources, will be placed in `WEB-INF/classes` in the final WAR
       liquibase/                         // Database migrations and LiquiBase configuration properties
         ...
-      facebook.properties                // non-LiveRebel-aware properties file for Facebook integration
-      jdbc.properties                    // non-LiveRebel-aware properties file for JDBC connection
-      mail.properties                    // non-LiveRebel-aware properties file for SMTP connection
+      facebook.properties                // properties file for Facebook integration
+      jdbc.properties                    // properties file for JDBC connection
+      mail.properties                    // properties file for SMTP connection
       rebel.xml                          // JRebel configuration file
     webapp/                              // Web application resources and pages
       WEB-INF/
