@@ -17,17 +17,17 @@ These are the features:
 
 1. Clone 
  
-    ```bash
-     $ git clone git://github.com/zeroturnaround/xr-demo-answers.git
-     ```
+```bash
+$ git clone git://github.com/zeroturnaround/xr-demo-answers.git
+```
 
 2. Configure the application for deployment by editing `src/main/filters/prod.properties`
  
 3. Build the WAR archive:
  
 ```bash
- $ mvn clean package
- ```
+$ mvn clean package
+```
 4. Deploy your `xr-demo-answers-java.war` archive to your servlet container.
 
 We have prepared a Vagrant box for Rebel Answers to make trying it out quick and easy. Follow the instructions at https://github.com/zeroturnaround/xr-demo-provisioning.
@@ -89,9 +89,11 @@ mail.username=you@gmail.com
 mail.password=yourpassword
 ```
 
+The easiest way to make GMail work with Rebel Answers is to create an application-specific password through your account security settings and using that in the properties file.
+
 For Facebook connect to work, you need serve the application from `answers.xrebel.com` by for example adding the following entry to your `/etc/hosts` file:
 
-```ini  
+```  
 127.0.0.1   answers.xrebel.com
 ```
 
