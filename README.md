@@ -21,7 +21,7 @@ These are the features:
      $ git clone git://github.com/zeroturnaround/xr-demo-answers.git
      ```
 
-2. Configure the application for deployment by editing `src/main/filters/filter.properties`
+2. Configure the application for deployment by editing `src/main/filters/prod.properties`
  
 3. Build the WAR archive:
  
@@ -57,15 +57,15 @@ src/
 ## Development ##
 Rebel Answers requires `Spring MVC 4.1.x`, `MySQL` and your favourite Java application server (e.g. Tomcat). Applying database migrations in development environment needs `liquibase` and a `MySQL JDBC driver`, but when using Maven these should be pulled in automatically.
 
-1. Configure the application by updating the properties in `src/main/filters/filter.properties`
+1. Configure the application by updating the properties in `src/main/filters/dev.properties`
 2. Create the database called `answers` in your MySQL server
 3. Update the database by running the schema migrations with:
 
     ```bash
-     $ mvn resources:resources liquibase:update
+     $ mvn -Denv=dev resources:resources liquibase:update
      ```
 4. Deployment options:
-  1. Build a WAR and deploy it to an application server (e.g. Tomcat)
+  1. Build a WAR and deploy it to an application server (e.g. Tomcat), using `mvn -Denv=dev clean package`
   2. Variation: use JRebel for development
   3. Other variation: open the IntelliJ IDEA project files to run the application directly in an IDE
 5. Access the application through `http://localhost:8080/xr-demo-answers`
