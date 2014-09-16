@@ -89,7 +89,7 @@ mail.username=you@gmail.com
 mail.password=yourpassword
 ```
 
-The easiest way to make GMail work with Rebel Answers is to create an application-specific password through your account security settings and using that in the properties file.
+The easiest way to make GMail work with Rebel Answers is to create an application-specific password through your account's security settings and to use that in the properties file.
 
 For Facebook connect to work, you need serve the application from `answers.xrebel.com` by for example adding the following entry to your `/etc/hosts` file:
 
@@ -97,4 +97,4 @@ For Facebook connect to work, you need serve the application from `answers.xrebe
 127.0.0.1   answers.xrebel.com
 ```
 
-The application will then be accessible at `http://answers.xrebel.com:8080/xr-demo-answers` and you can log in with your Facebook credentials.
+The application will then for instance be accessible at `http://answers.xrebel.com:8080/xr-demo-answers` and you can log in with your Facebook credentials.
