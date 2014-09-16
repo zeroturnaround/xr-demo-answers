@@ -1,4 +1,6 @@
-filter.properties
+dev.properties
+prod.properties
 .idea
 target
 .DS_Store
+xr-demo-answers.iml
