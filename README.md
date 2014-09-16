@@ -72,11 +72,11 @@ Rebel Answers requires `Spring MVC 4.1.x`, `MySQL` and your favourite Java appli
 
 Contributions are more than welcome!
 
-## Furtrher configuration ##
+## Further configuration ##
 
 Your specific installation might require its own dedicated configuration in the property filter files, however for demo purposes, this is a typical example of `prod.properties`:
 
-    ```properties
+    ```INI
     facebook.clientId=383402301757345
     facebook.clientSecret=191194dfbbb921f7eca23b1e21f76bb5
     jdbc.host=localhost
@@ -90,7 +90,7 @@ Your specific installation might require its own dedicated configuration in the 
 
 For Facebook connect to work, you need serve the application from `answers.xrebel.com` by for example adding the following entry to your `/etc/hosts` file:
 
-    ```
+    ```INI
     127.0.0.1   answers.xrebel.com
     ```
 
