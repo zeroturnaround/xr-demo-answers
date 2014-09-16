@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+  <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+    <property name="basename" value="/WEB-INF/i18n/messages"/>
+    <property name="cacheSeconds" value="3000"/>
+  </bean>
+
+  <bean id="userService" class="com.zeroturnaround.rebelanswers.service.impl.DaoUserService">
+    <constructor-arg ref="userDao"/>
+  </bean>
+
+  <bean id="questionService" class="com.zeroturnaround.rebelanswers.service.impl.DaoQuestionService">
+    <constructor-arg ref="questionDao"/>
+  </bean>
+
+  <bean id="answerService" class="com.zeroturnaround.rebelanswers.service.impl.DaoAnswerService">
+    <constructor-arg ref="answerDao"/>
+  </bean>
+
+  <bean id="voteService" class="com.zeroturnaround.rebelanswers.service.impl.DaoVoteService">
+    <constructor-arg ref="voteDao"/>
+  </bean>
+
+  <bean id="commentService" class="com.zeroturnaround.rebelanswers.service.impl.DaoCommentService">
+    <constructor-arg ref="commentDao"/>
+  </bean>
+
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="locations">
+      <list>
+        <value>classpath:facebook.properties</value>
+        <value>classpath:facebook-dev.properties</value>
+      </list>
+    </property>
+    <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    <property name="ignoreResourceNotFound" value="true"/>
+  </bean>
+
+  <bean id="connectionFactoryLocator" class="org.springframework.social.connect.support.ConnectionFactoryRegistry">
+    <property name="connectionFactories">
+      <list>
+        <bean class="org.springframework.social.facebook.connect.FacebookConnectionFactory">
+          <constructor-arg value="${facebook.clientId}"/>
+          <constructor-arg value="${facebook.clientSecret}"/>
+        </bean>
+      </list>
+    </property>
+  </bean>
+
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="locations">
+      <list>
+        <value>classpath:mail.properties</value>
+        <value>classpath:mail-dev.properties</value>
+      </list>
+    </property>
+    <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    <property name="ignoreResourceNotFound" value="true"/>
+  </bean>
+
+  <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <property name="host" value="${mail.host}"/>
+    <property name="port" value="${mail.port}"/>
+    <property name="username" value="${mail.username}"/>
+    <property name="password" value="${mail.password}"/>
+    <property name="javaMailProperties">
+      <props>
+        <prop key="mail.smtp.auth">${mail.authenticate}</prop>
+        <prop key="mail.transport.protocol.rfc822">${mail.protocol}</prop>
+        <prop key="mail.smtp.starttls.enable">${mail.startttls}</prop>
+      </props>
+    </property>
+  </bean>
+
+</beans>

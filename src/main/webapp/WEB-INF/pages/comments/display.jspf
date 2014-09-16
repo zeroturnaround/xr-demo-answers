@@ -1,0 +1,13 @@
+<div>
+  <div class="post">
+    <ra:markdownToHtml text="${comment.content}"/>
+  </div>
+  <div class="note">
+    <spring:url var="commentProfileUrl" value="/profile/{id}/{name}/questions">
+      <spring:param name="id" value="${comment.author.id}"/>
+      <spring:param name="name" value="${ra:sanitizeForUrl(comment.author.name)}"/>
+    </spring:url>
+    Commented by <a href="${commentProfileUrl}"><c:out value="${comment.author.name}"/></a>&nbsp;<ra:prettytime date="${comment.created}"/>
+  </div>
+</div>
+<hr/>

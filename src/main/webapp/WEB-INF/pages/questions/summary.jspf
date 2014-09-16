@@ -1,0 +1,31 @@
+<div class="zebra row">
+  <div class="span2 counters">
+    <p class="text-center counter-answers">
+      <c:out value="${question.answers.size()}"/><br/>
+      answer(s)
+    </p>
+    <p class="text-center counter-votes">
+      <c:out value="${question.voteCount}"/><br/>
+      vote(s)
+    </p>
+  </div>
+  <div class="span10">
+    <spring:url var="questionUrl" value="/question/{id}/{title}">
+      <spring:param name="id" value="${question.id}"/>
+      <spring:param name="title" value="${ra:sanitizeForUrl(question.title)}"/>
+    </spring:url>
+    <h2><a href="${questionUrl}"><c:out value="${question.title}"/></a></h2>
+    <c:if test="${not empty question.acceptedAnswer}">
+      <span class="label label-success">Answered</span>
+    </c:if>
+
+    <div class="note">
+      <spring:url var="questionProfileUrl" value="/profile/{id}/{name}/questions">
+        <spring:param name="id" value="${question.author.id}"/>
+        <spring:param name="name" value="${ra:sanitizeForUrl(question.author.name)}"/>
+      </spring:url>
+      Asked by <a href="${questionProfileUrl}"><c:out value="${question.author.name}"/></a>&nbsp;
+      <ra:prettytime date="${question.created}"/>
+    </div>
+  </div>
+</div>

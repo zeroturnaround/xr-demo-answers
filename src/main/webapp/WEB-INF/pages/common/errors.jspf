@@ -1,0 +1,12 @@
+<spring:bind path="*">
+  <c:if test="${not empty status.errorMessages}">
+    <div class="errorSummary">
+      <p>Please fix the following input errors:</p>
+      <ul>
+        <c:forEach items="${ra:sortStringArray(status.errorMessages)}" var="error">
+          <li><c:out value="${error}"/></li>
+        </c:forEach>
+      </ul>
+    </div>
+  </c:if>
+</spring:bind>

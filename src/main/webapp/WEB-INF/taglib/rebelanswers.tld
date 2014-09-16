@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+    version="2.1">
+
+  <display-name>XRebel Answers Functions</display-name>
+  <tlib-version>1.0</tlib-version>
+  <short-name>ra</short-name>
+  <uri>http://www.zeroturnaround.com/tags</uri>
+
+  <tag>
+    <description>
+      Returns the name of an authenticated user.
+    </description>
+    <name>authUserName</name>
+    <tag-class>com.zeroturnaround.rebelanswers.mvc.taglib.AuthenticatedUserNameTag</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+
+  <tag>
+    <description>
+      Returns the version of current application.
+    </description>
+    <name>applicationVersion</name>
+    <tag-class>com.zeroturnaround.rebelanswers.mvc.taglib.ApplicationVersionTag</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+
+  <tag>
+    <description>Custom tag to pretty print java.util.Date objects using Prettytime</description>
+    <name>prettytime</name>
+    <tag-class>com.zeroturnaround.rebelanswers.mvc.taglib.PrettyTimeTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>date</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <description>Custom tag to convert markdown text to HTML using PegDown</description>
+    <name>markdownToHtml</name>
+    <tag-class>com.zeroturnaround.rebelanswers.mvc.taglib.MarkdownToHtmlTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>text</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <description>Custom tag to transform HTML JSP output into text that can be used as a JSON string</description>
+    <name>htmlToJson</name>
+    <tag-class>com.zeroturnaround.rebelanswers.mvc.taglib.HtmlToJsonTag</tag-class>
+    <body-content>JSP</body-content>
+  </tag>
+
+  <function>
+    <name>sortStringArray</name>
+    <function-class>com.zeroturnaround.rebelanswers.mvc.taglib.JspUtils</function-class>
+    <function-signature>java.lang.String[] sortStringArray(java.lang.String[])</function-signature>
+  </function>
+
+  <function>
+    <name>sanitizeForUrl</name>
+    <function-class>com.zeroturnaround.rebelanswers.mvc.taglib.JspUtils</function-class>
+    <function-signature>java.lang.String sanitizeForUrl(java.lang.String)</function-signature>
+  </function>
+
+  <function>
+    <name>authenticatedUser</name>
+    <function-class>com.zeroturnaround.rebelanswers.security.SecurityTools</function-class>
+    <function-signature>com.zeroturnaround.rebelanswers.domain.User getAuthenticatedUser()</function-signature>
+  </function>
+
+</taglib>

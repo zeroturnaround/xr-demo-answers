@@ -1,0 +1,27 @@
+<%@ include file="../common/taglibs.jspf" %>
+
+<ul class="nav nav-pills">
+  <li class="${subSection == 'newest' ? 'active' : ''}">
+    <spring:url var="newestUrl" value="">
+      <spring:param name="filterBy" value="newest"/>
+    </spring:url>
+    <a href="${newestUrl}">newest</a></li>
+  </li>
+  <li class="${subSection == 'noanswers' ? 'active' : ''}">
+    <spring:url var="noAnswersUrl" value="">
+      <spring:param name="filterBy" value="noanswers"/>
+    </spring:url>
+    <a href="${noAnswersUrl}">no answers</a></li>
+</ul>
+
+<c:choose>
+  <c:when test="${not empty questions}">
+    <c:forEach var="question" items="${questions}">
+      <%@ include file="summary.jspf" %>
+    </c:forEach>
+    <p><util:pagination maxPages="${maxPages}" page="${param['page.page']}" size="${param['page.size']}" preservedParameter="filterBy"/></p>
+  </c:when>
+  <c:otherwise>
+    <p>No questions available yet.</p>
+  </c:otherwise>
+</c:choose>

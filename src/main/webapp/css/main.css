@@ -1,0 +1,255 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+a, a:active {
+  color: #82AC2A;
+}
+
+a:hover, a:focus {
+  color: #92C12F;
+}
+
+h1 {
+  font-size: 2.5em;
+  padding: 0.5em 0;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h1 + .nav-pills {
+  float: right;
+  margin-top: -4.5em;
+}
+
+.comments {
+  background: #FAFAFA;
+  font-size: 90%;
+  margin: 1em 0;
+}
+
+.comments > div {
+  padding: 1em;
+}
+
+.comments > div + hr {
+  margin: 0;
+}
+
+.content {
+  box-shadow: 0 0 0 1em white, 0 -0.5em 3em #AAA;
+  position: relative;
+  margin-bottom: 1em;
+}
+
+.content > .row {
+  margin-left: 0;
+}
+
+.content > .row .note {
+  color: #999;
+  font-size: 90%;
+  text-align: right;
+}
+
+.content > .row .counters {
+  margin-left: 0;
+  padding: 1.5em 0;
+}
+
+.counters :first-line {
+  font-size: 150%;
+}
+
+.counters > p {
+  display: inline-block;
+  width: 48%;
+}
+
+.navbar {
+  background: #323232;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.navbar + * {
+  background: white;
+  box-shadow: 0 0 0 1em white;
+  margin-top: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.navbar .brand, .navbar .nav > li > a {
+  color: #949494;
+  text-shadow: none;
+}
+
+.navbar .nav > li > a:hover {
+  color: white !important;
+}
+
+.navbar .brand {
+  color: #92C12F !important;
+  font-weight: bold;
+}
+
+.navbar-inner {
+  background: transparent;
+  border: 0;
+  margin: auto;
+  max-width: 1170px;
+  width: 87%;
+}
+
+.nav-tabs > li.active a {
+  font-weight: bold;
+}
+
+.nav-pills > .active > a, .nav-pills > .active > a:hover, .nav-pills > .active > a:focus,
+.nav > li > a:hover, .nav > li > a:focus {
+  background: #9FCF3A;
+  color: white;
+}
+
+.row > [class*=span]:first-child {
+  margin-left: 0;
+}
+
+.voting {
+  text-align: center;
+}
+
+.voting a {
+  color: white;
+  text-decoration: none !important;
+}
+
+.voting > span {
+  display: inline-block;
+  font-size: 150%;
+}
+
+.voting .votes {
+  display: block;
+  margin: 0.3em;
+}
+
+.voting .label {
+  line-height: 0.8em;
+  width: 0.8em;
+}
+
+.zebra.row {
+  padding: 10px;
+}
+
+.zebra.row:nth-of-type(2n+1) {
+  background: #FAFAFA;
+}
+
+.zebra.row > [class*=span] {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding-right: 10px;
+}
+
+blockquote {
+  border-left: 2px dotted #888;
+  padding-left: 5px;
+  background: #d0f0ff;
+}
+
+.wmd-button-bar {
+  width: 100%;
+  background-color: Silver;
+}
+
+.wmd-button-row {
+  position: relative;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  padding: 0px;
+  height: 20px;
+}
+
+.wmd-spacer {
+  width: 1px;
+  height: 20px;
+  margin-left: 14px;
+
+  position: absolute;
+  background-color: Silver;
+  display: inline-block;
+  list-style: none;
+}
+
+.wmd-button {
+  width: 20px;
+  height: 20px;
+  padding-left: 2px;
+  padding-right: 3px;
+  position: absolute;
+  display: inline-block;
+  list-style: none;
+  cursor: pointer;
+}
+
+.wmd-button > span {
+  background-image: url(../images/wmd-buttons.png);
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.wmd-spacer1 {
+  left: 50px;
+}
+
+.wmd-spacer2 {
+  left: 175px;
+}
+
+.wmd-spacer3 {
+  left: 300px;
+}
+
+.wmd-prompt-background {
+  background-color: Black;
+}
+
+.wmd-prompt-dialog {
+  border: 1px solid #999999;
+  background-color: #F5F5F5;
+}
+
+.wmd-prompt-dialog > div {
+  font-size: 0.8em;
+  font-family: arial, helvetica, sans-serif;
+}
+
+.wmd-prompt-dialog > form > input[type="text"] {
+  border: 1px solid #999999;
+  color: black;
+}
+
+.wmd-prompt-dialog > form > input[type="button"] {
+  border: 1px solid #888888;
+  font-family: trebuchet MS, helvetica, sans-serif;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.wmd-preview {
+  border: 2px dotted #ccc;
+}

@@ -1,0 +1,35 @@
+<%@ page import="com.zeroturnaround.rebelanswers.security.StandardAuthorities" %>
+<%@ include file="taglibs.jspf" %>
+<div class="navbar">
+  <div class="navbar-inner">
+    <spring:url var="welcomeUrl" value="/"/>
+    <a class="brand" href="${welcomeUrl}">Rebel Answers <ra:applicationVersion/></a>
+
+    <spring:url var="searchUrl" value="/search"/>
+    <form action="${searchUrl}" method="GET" class="navbar-search pull-left"><input name="q" type="content" class="search-query span6" placeholder="Search"/></form>
+    <ul class="nav pull-right">
+      <sec:authorize ifNotGranted="<%=StandardAuthorities.USER%>">
+        <spring:url var="loginUrl" value="/login"/>
+        <li><a href="${loginUrl}">Log in</a></li>
+      </sec:authorize>
+      <sec:authorize ifAnyGranted="<%=StandardAuthorities.USER%>">
+        <spring:url var="profileUrl" value="/profile/{id}/{name}/questions">
+          <spring:param name="id" value="${ra:authenticatedUser().id}"/>
+          <spring:param name="name" value="${ra:sanitizeForUrl(ra:authenticatedUser().name)}"/>
+        </spring:url>
+        <li><a href="${profileUrl}"><ra:authUserName/></a></li>
+        <spring:url var="logoutUrl" value="/logout"/>
+        <li><a href="${logoutUrl}">Log out</a></li>
+      </sec:authorize>
+    </ul>
+  </div>
+</div>
+
+<ul class="nav nav-tabs">
+  <spring:url var="questionsAllUrl" value="/questions/all"/>
+  <li class="${section == 'questions' ? 'active' : ''}"><a href="${questionsAllUrl}">Questions</a></li>
+  <spring:url var="questionsUnansweredUrl" value="/questions/unanswered"/>
+  <li class="${section == 'unanswered' ? 'active' : ''}"><a href="${questionsUnansweredUrl}">Unanswered</a></li>
+  <spring:url var="questionAskUrl" value="/questions/ask"/>
+  <li class="${section == 'ask' ? 'active' : ''} pull-right"><a href="${questionAskUrl}">Ask Question</a></li>
+</ul>
